@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'username', 'email', 'password', 'userid', 'active',
     ];
 
     /**
@@ -26,4 +26,10 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+	//Change the primary key to userid instead of just id.
+	protected $primaryKey = 'userid';
+
+	//Tell Laravel that the primary key isn't an incrementing integer, since otherwise it'll assume that.
+	public $incrementing = false;
 }
