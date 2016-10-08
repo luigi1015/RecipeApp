@@ -13,7 +13,16 @@ class CreateRecipesTable extends Migration
 	 */
 	public function up()
 	{
-		//
+		Schema::create('recipes', function(Blueprint $table)
+		{
+			//$table->increments('id');
+			$table->string('recipeid')->primary();
+			$table->string('name');
+			$table->boolean('public');
+			$table->string('owneruserid')->nullable();
+			$table->foreign('owneruserid')->references('userid')->on('users')->onDelete('set null');
+			$table->timestamps();
+		});
 	}
 
 	/**
@@ -23,6 +32,10 @@ class CreateRecipesTable extends Migration
 	 */
 	public function down()
 	{
-		//
+		Schema::table('recipes', function($table)
+		{
+			$table->dropForeign('recipes_owneruserid_foreign');
+		}
+		Schema::dropIfExists('recipes');
 	}
 }
