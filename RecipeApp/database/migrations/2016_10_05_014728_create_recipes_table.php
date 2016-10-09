@@ -35,7 +35,7 @@ class CreateRecipesTable extends Migration
 		Schema::table('recipes', function($table)
 		{
 			$table->dropForeign('recipes_owneruserid_foreign');
-		}
+		});
 		Schema::dropIfExists('recipes');
 	}
 }
