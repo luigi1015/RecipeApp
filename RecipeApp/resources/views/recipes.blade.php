@@ -8,9 +8,9 @@
 				<div class="panel-heading">Dashboard</div>
 
 				<div class="panel-body">
-					You are logged in!
+					Here are your recipes
 					<br>
-					<a href="/recipes">My Recipes</a>
+					<a href="/home">Back home</a>
 				</div>
 			</div>
 		</div>

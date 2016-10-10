@@ -12,6 +12,16 @@ use Ramsey\Uuid\Exception\UnsatisfiedDependencyException;
 class RecipeAppController extends Controller
 {
 	/**
+	 * Show the user's recipes.
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function getRecipes()
+	{
+		return view('recipes');
+	}
+
+	/**
 	 * Generates a UUID that's not in the $columnName column of the $tableName table.
 	 * 
 	 * $tableName - the name of the table to check for duplicates
