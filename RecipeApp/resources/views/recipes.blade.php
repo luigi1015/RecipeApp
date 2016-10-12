@@ -10,6 +10,10 @@
 				<div class="panel-body">
 					Here are your recipes
 					<br>
+					@foreach( $recipes as $recipe )
+						{{ $recipe->name }}
+						<br>
+					@endforeach
 					<a href="/home">Back home</a>
 				</div>
 			</div>

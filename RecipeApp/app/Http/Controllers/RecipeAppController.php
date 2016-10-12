@@ -8,6 +8,9 @@ use RecipeApp\Http\Requests;
 
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\Exception\UnsatisfiedDependencyException;
+use Auth;
+use Log;
+use RecipeApp\Recipe;
 
 class RecipeAppController extends Controller
 {
@@ -18,7 +21,14 @@ class RecipeAppController extends Controller
 	 */
 	public function getRecipes()
 	{
-		return view('recipes');
+		$recipes = array();
+		if( Auth::check() )
+		{
+			$user = Auth::user();
+			$recipes = Recipe::where('owneruserid', $user->userid)->orderBy('name', 'asc')->get();
+			//Log::info('Found ' . count($recipes) . ' recipes for user: ' . $user->userid);
+		}
+		return view('recipes')->with('recipes', $recipes);
 	}
 
 	/**

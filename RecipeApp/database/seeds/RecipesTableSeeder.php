@@ -18,6 +18,25 @@ class RecipesTableSeeder extends Seeder
 		DB::table('recipes')->insert([
 			'recipeid' => $uuid,
 			'name' => 'Test Recipe 01',
+			'userfriendlyid' => 'TestRecipe01',
+			'public' => true,
+			'owneruserid' => $user->userid,
+			'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+		]);
+		$uuid = RecipeAppController::getUUID( 'recipes', 'recipeid' );
+		DB::table('recipes')->insert([
+			'recipeid' => $uuid,
+			'name' => 'Test Recipe 02',
+			'userfriendlyid' => 'TestRecipe02',
+			'public' => true,
+			'owneruserid' => $user->userid,
+			'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+		]);
+		$uuid = RecipeAppController::getUUID( 'recipes', 'recipeid' );
+		DB::table('recipes')->insert([
+			'recipeid' => $uuid,
+			'name' => 'Test Recipe 03',
+			'userfriendlyid' => 'TestRecipe03',
 			'public' => true,
 			'owneruserid' => $user->userid,
 			'created_at' => Carbon::now()->format('Y-m-d H:i:s'),

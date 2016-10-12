@@ -18,6 +18,7 @@ class CreateRecipesTable extends Migration
 			//$table->increments('id');
 			$table->string('recipeid')->primary();
 			$table->string('name');
+			$table->string('userfriendlyid');//For use in stuff like route parameters. Needs to contain only characters that can be put in a URL (i.e. no spaces).
 			$table->boolean('public');
 			$table->string('owneruserid')->nullable();
 			$table->foreign('owneruserid')->references('userid')->on('users')->onDelete('set null');
