@@ -22,6 +22,7 @@ class RecipesTableSeeder extends Seeder
 			'public' => true,
 			'owneruserid' => $user->userid,
 			'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+			'description' => 'Test Recipe 01 description',
 		]);
 		$uuid = RecipeAppController::getUUID( 'recipes', 'recipeid' );
 		DB::table('recipes')->insert([
@@ -31,6 +32,7 @@ class RecipesTableSeeder extends Seeder
 			'public' => true,
 			'owneruserid' => $user->userid,
 			'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+			'description' => 'Test Recipe 02 description',
 		]);
 		$uuid = RecipeAppController::getUUID( 'recipes', 'recipeid' );
 		DB::table('recipes')->insert([
@@ -40,6 +42,7 @@ class RecipesTableSeeder extends Seeder
 			'public' => true,
 			'owneruserid' => $user->userid,
 			'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+			'description' => 'Test Recipe 03 description',
 		]);
 	}
 }

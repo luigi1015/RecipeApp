@@ -22,6 +22,7 @@ class CreateRecipesTable extends Migration
 			$table->boolean('public');
 			$table->string('owneruserid')->nullable();
 			$table->foreign('owneruserid')->references('userid')->on('users')->onDelete('set null');
+			$table->string('description');
 			$table->timestamps();
 		});
 	}

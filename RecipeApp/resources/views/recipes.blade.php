@@ -10,10 +10,14 @@
 				<div class="panel-body">
 					Here are your recipes
 					<br>
+					<div class="list-group">
 					@foreach( $recipes as $recipe )
-						{{ $recipe->name }}
-						<br>
+						<a href="#" class="list-group-item list-group-item-action">
+							<h4 class="list-group-item-heading">{{ $recipe->name }}</h4>
+							<span class="list-group-item-text">{{ $recipe->description }}</span>
+						</a>
 					@endforeach
+					</div>
 					<a href="/home">Back home</a>
 				</div>
 			</div>
