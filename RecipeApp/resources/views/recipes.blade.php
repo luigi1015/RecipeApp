@@ -12,7 +12,7 @@
 					<br>
 					<div class="list-group">
 					@foreach( $recipes as $recipe )
-						<a href="#" class="list-group-item list-group-item-action">
+						<a href="#" class="list-group-item">
 							<h4 class="list-group-item-heading">{{ $recipe->name }}</h4>
 							<span class="list-group-item-text">{{ $recipe->description }}</span>
 						</a>
