@@ -12,7 +12,7 @@
 					<br>
 					<div class="list-group">
 					@foreach( $recipes as $recipe )
-						<a href="#" class="list-group-item">
+						<a href="/user/{username}/recipe/{{ $recipe->userfriendlyid }}" class="list-group-item"><!-- Still have to get the username. -->
 							<h4 class="list-group-item-heading">{{ $recipe->name }}</h4>
 							<span class="list-group-item-text">{{ $recipe->description }}</span>
 						</a>

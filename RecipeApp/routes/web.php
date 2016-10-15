@@ -22,4 +22,5 @@ Route::get('/home', 'HomeController@index');
 Route::group(['middleware' => 'auth'], function ()
 {
 	Route::get('/recipes', 'RecipeAppController@getRecipes')->name('recipes');
+	Route::get('/user/{username}/recipe/{userfriendlyid}', 'RecipeAppController@getRecipe')->name('recipe');
 });

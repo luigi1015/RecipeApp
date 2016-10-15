@@ -32,6 +32,16 @@ class RecipeAppController extends Controller
 	}
 
 	/**
+	 * Show the recipe for a given username and userfriendlyid.
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function getRecipe( $username, $userfriendlyid )
+	{
+		return view('recipe');
+	}
+
+	/**
 	 * Generates a UUID that's not in the $columnName column of the $tableName table.
 	 * 
 	 * $tableName - the name of the table to check for duplicates
