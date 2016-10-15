@@ -13,7 +13,15 @@ class CreateIngredientsTable extends Migration
 	 */
 	public function up()
 	{
-		//
+		Schema::create('ingredients', function(Blueprint $table)
+		{
+			//$table->increments('id');
+			$table->string('ingredientid')->primary();
+			$table->string('text');
+			$table->string('recipeid')->nullable();
+			$table->foreign('recipeid')->references('recipeid')->on('recipes')->onDelete('cascade');
+			$table->timestamps();
+		});
 	}
 
 	/**
@@ -23,6 +31,10 @@ class CreateIngredientsTable extends Migration
 	 */
 	public function down()
 	{
-		//
+		Schema::table('ingredients', function($table)
+		{
+			$table->dropForeign('ingredients_recipeid_foreign');
+		});
+		Schema::dropIfExists('ingredients');
 	}
 }

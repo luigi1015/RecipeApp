@@ -13,7 +13,15 @@ class CreateInstructionsTable extends Migration
 	 */
 	public function up()
 	{
-		//
+		Schema::create('instructions', function(Blueprint $table)
+		{
+			//$table->increments('id');
+			$table->string('instructionid')->primary();
+			$table->string('text');
+			$table->string('recipeid')->nullable();
+			$table->foreign('recipeid')->references('recipeid')->on('recipes')->onDelete('cascade');
+			$table->timestamps();
+		});
 	}
 
 	/**
@@ -23,6 +31,10 @@ class CreateInstructionsTable extends Migration
 	 */
 	public function down()
 	{
-		//
+		Schema::table('instructions', function($table)
+		{
+			$table->dropForeign('instructions_recipeid_foreign');
+		});
+		Schema::dropIfExists('instructions');
 	}
 }
