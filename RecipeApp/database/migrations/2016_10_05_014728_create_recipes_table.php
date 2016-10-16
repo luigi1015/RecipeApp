@@ -20,8 +20,8 @@ class CreateRecipesTable extends Migration
 			$table->string('name');
 			$table->string('userfriendlyid');//For use in stuff like route parameters. Needs to contain only characters that can be put in a URL (i.e. no spaces).
 			$table->boolean('public');
-			$table->string('owneruserid')->nullable();
-			$table->foreign('owneruserid')->references('userid')->on('users')->onDelete('set null');
+			$table->string('owneruser_id')->nullable();
+			$table->foreign('owneruser_id')->references('userid')->on('users')->onDelete('set null');
 			$table->string('description');
 			$table->timestamps();
 		});
@@ -36,7 +36,7 @@ class CreateRecipesTable extends Migration
 	{
 		Schema::table('recipes', function($table)
 		{
-			$table->dropForeign('recipes_owneruserid_foreign');
+			$table->dropForeign('recipes_owneruser_id_foreign');
 		});
 		Schema::dropIfExists('recipes');
 	}

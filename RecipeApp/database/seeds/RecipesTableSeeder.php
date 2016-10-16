@@ -20,7 +20,7 @@ class RecipesTableSeeder extends Seeder
 			'name' => 'Test Recipe 01',
 			'userfriendlyid' => 'TestRecipe01',
 			'public' => true,
-			'owneruserid' => $user->userid,
+			'owneruser_id' => $user->userid,
 			'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
 			'description' => 'Test Recipe 01 description',
 		]);
@@ -30,7 +30,7 @@ class RecipesTableSeeder extends Seeder
 			'name' => 'Test Recipe 02',
 			'userfriendlyid' => 'TestRecipe02',
 			'public' => true,
-			'owneruserid' => $user->userid,
+			'owneruser_id' => $user->userid,
 			'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
 			'description' => 'Test Recipe 02 description',
 		]);
@@ -40,7 +40,7 @@ class RecipesTableSeeder extends Seeder
 			'name' => 'Test Recipe 03',
 			'userfriendlyid' => 'TestRecipe03',
 			'public' => true,
-			'owneruserid' => $user->userid,
+			'owneruser_id' => $user->userid,
 			'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
 			'description' => 'Test Recipe 03 description',
 		]);

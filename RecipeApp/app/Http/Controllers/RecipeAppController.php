@@ -25,7 +25,7 @@ class RecipeAppController extends Controller
 		if( Auth::check() )
 		{
 			$user = Auth::user();
-			$recipes = Recipe::where('owneruserid', $user->userid)->orderBy('name', 'asc')->get();
+			$recipes = Recipe::where('owneruser_id', $user->userid)->orderBy('name', 'asc')->with('owneruser')->get();
 			//Log::info('Found ' . count($recipes) . ' recipes for user: ' . $user->userid);
 		}
 		return view('recipes')->with('recipes', $recipes);
