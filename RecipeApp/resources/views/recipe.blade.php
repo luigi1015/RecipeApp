@@ -8,7 +8,21 @@
 				<div class="panel-heading">Dashboard</div>
 
 				<div class="panel-body">
-					Here is your recipe:
+					@if( !(empty($recipe)) )
+						Here is your recipe:
+						<br>
+						Name: {{ $recipe->name }}
+						<br>
+						User Friendly ID: {{ $recipe->userfriendlyid }}
+						<br>
+						Public: {{ $recipe->public == true ? 'True' : 'False' }}
+						<br>
+						Description:
+						<br>
+						{{ $recipe->description }}
+					@else
+						Recipe not found.
+					@endif
 					<br>
 					<a href="/home">Back home</a>
 				</div>
