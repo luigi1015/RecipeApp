@@ -18,8 +18,8 @@ class CreateIngredientsTable extends Migration
 			//$table->increments('id');
 			$table->string('ingredientid')->primary();
 			$table->string('text');
-			$table->string('recipeid')->nullable();
-			$table->foreign('recipeid')->references('recipeid')->on('recipes')->onDelete('cascade');
+			$table->string('recipe_id')->nullable();
+			$table->foreign('recipe_id')->references('recipeid')->on('recipes')->onDelete('cascade');
 			$table->timestamps();
 		});
 	}
@@ -33,7 +33,7 @@ class CreateIngredientsTable extends Migration
 	{
 		Schema::table('ingredients', function($table)
 		{
-			$table->dropForeign('ingredients_recipeid_foreign');
+			$table->dropForeign('ingredients_recipe_id_foreign');
 		});
 		Schema::dropIfExists('ingredients');
 	}
