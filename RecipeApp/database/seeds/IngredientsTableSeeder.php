@@ -18,7 +18,9 @@ class IngredientsTableSeeder extends Seeder
 		$uuid = RecipeAppController::getUUID( 'ingredients', 'ingredientid' );
 		DB::table('ingredients')->insert([
 			'ingredientid' => $uuid,
-			'text' => 'Test Recipe Ingredient 01',
+			'amount' => 1,
+			'unit' => 'cup',
+			'ingredientName' => 'Test Recipe Ingredient 01',
 			'recipe_id' => $recipe->recipeid,
 			'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
 		]);
@@ -26,7 +28,9 @@ class IngredientsTableSeeder extends Seeder
 		$uuid = RecipeAppController::getUUID( 'ingredients', 'ingredientid' );
 		DB::table('ingredients')->insert([
 			'ingredientid' => $uuid,
-			'text' => 'Test Recipe Ingredient 02',
+			'amount' => 2,
+			'unit' => 'pounds',
+			'ingredientName' => 'Test Recipe Ingredient 02',
 			'recipe_id' => $recipe->recipeid,
 			'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
 		]);
@@ -34,7 +38,9 @@ class IngredientsTableSeeder extends Seeder
 		$uuid = RecipeAppController::getUUID( 'ingredients', 'ingredientid' );
 		DB::table('ingredients')->insert([
 			'ingredientid' => $uuid,
-			'text' => 'Test Recipe Ingredient 03',
+			'amount' => 3,
+			'unit' => 'ounces',
+			'ingredientName' => 'Test Recipe Ingredient 03',
 			'recipe_id' => $recipe->recipeid,
 			'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
 		]);

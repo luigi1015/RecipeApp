@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+{{ $recipe->name or '' }}
+@endsection
+
 @section('content')
 <div class="container">
 	<div class="row">
@@ -20,6 +24,32 @@
 						Description:
 						<br>
 						{{ $recipe->description }}
+						<br>
+						Ingredients:
+						<br>
+						@if( !(empty($ingredients)) )
+							@forelse( $ingredients as $ingredient )
+								{{ $ingredient->amount }} {{ $ingredient->unit }} {{ $ingredient->ingredientName }}
+								<br>
+							@empty
+								No ingredients found for this recipe.
+							@endforelse
+						@else
+							No ingredients found.
+						@endif
+						<br>
+						Instructions:
+						<br>
+						@if( !(empty($ingredients)) )
+							@forelse( $instructions as $instruction )
+								{{ $instruction->ordernum }}. {{ $instruction->text }}
+								<br>
+							@empty
+								No instructions found for this recipe.
+							@endforelse
+						@else
+							No instructions found.
+						@endif
 					@else
 						Recipe not found.
 					@endif

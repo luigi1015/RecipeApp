@@ -11,6 +11,8 @@ use Ramsey\Uuid\Exception\UnsatisfiedDependencyException;
 use Auth;
 use Log;
 use RecipeApp\Recipe;
+use RecipeApp\Ingredient;
+use RecipeApp\Instruction;
 use RecipeApp\User;
 
 class RecipeAppController extends Controller
@@ -72,7 +74,9 @@ class RecipeAppController extends Controller
 		//Check to make sure the logged in user has access to the recipe. Specically (for now at least), check if the logged in user is the owner of the recipe or the recipe is public.
 		if( ($recipeUser->userid == $loggedInUser->userid) or ($recipe->public == true) )
 		{
-			return view('recipe')->with('recipe', $recipe);
+			$instructions = Instruction::where( 'recipe_id', $recipe->recipeid )->orderBy('ordernum', 'ASC')->get();
+			$ingredient = Ingredient::where( 'recipe_id', $recipe->recipeid )->get();
+			return view('recipe')->with('recipe', $recipe)->with('instructions', $instructions)->with('ingredients', $ingredient);
 		}
 		else
 		{
